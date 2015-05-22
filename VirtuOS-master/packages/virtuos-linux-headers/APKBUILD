@@ -1,0 +1,63 @@
+# Maintainer: Natanael Copa <ncopa@alpinelinux.org>
+pkgname=linux-headers
+pkgver=3.2.30
+_kernver=${pkgver#.*}
+pkgrel=0
+pkgdesc="Linux system headers"
+url="http://kernel.org"
+arch="all"
+license='GPL-2'
+makedepends="perl"
+options="!strip !tracedeps"
+source="ftp://ftp.kernel.org/pub/linux/kernel/v3.x/linux-$_kernver.tar.bz2
+	ftp://ftp.kernel.org/pub/linux/kernel/v3.x/patch-$pkgver.bz2
+	linux_r101.patch
+	linux_memleak.patch
+	"
+
+prepare() {
+	cd "$srcdir"/linux-$_kernver
+	if [ "$_kernver" != "$pkgver" ]; then
+		bunzip2 -c < "$srcdir"/patch-$pkgver.bz2 | patch -p1 || return 1
+	fi
+	#apply patches
+	for i in $source; do
+		case $i in
+		*.patch)
+			msg "Applying $i..."
+			if ! patch -s -p1 -N -i "$srcdir"/$i; then
+				echo $i >>failed
+				_patch_failed=1
+				return 1
+			fi
+			;;
+		esac
+	done
+}
+
+build() {
+	return 0
+}
+
+package() {
+	local _carch=$CARCH
+
+	case "$_carch" in
+	arm*) _carch="arm" ;;
+	esac
+
+	cd "$srcdir"/linux-$_kernver
+	mkdir -p "$pkgdir/usr"
+	make headers_install ARCH="${_carch}" INSTALL_HDR_PATH="$pkgdir/usr" || return 1
+
+	find "$pkgdir/usr" \( -name .install -o -name ..install.cmd \) -exec \
+		rm -f {} \;
+
+	# provided by libdrm
+	rm -rf "$pkgdir"/usr/include/drm
+}
+
+md5sums="d899e65520424a27661009ea43b28103  linux-3.2.30.tar.bz2
+008626f6c88d0d3660f088c56be73bc0  patch-3.2.30.bz2
+e0769a47cafd1ea7a406607fc9fa990a  linux_r101.patch
+fcef1d4d555dc4cb1d473acdc02d652a  linux_memleak.patch"

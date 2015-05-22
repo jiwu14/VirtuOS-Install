@@ -1,0 +1,1 @@
+cmd_/home/sam/VirtuOS-master/source/syscall-backend/storage/syscall-backend.o := ld -m elf_x86_64   -r -o /home/sam/VirtuOS-master/source/syscall-backend/storage/syscall-backend.o /home/sam/VirtuOS-master/source/syscall-backend/storage/backend.o 

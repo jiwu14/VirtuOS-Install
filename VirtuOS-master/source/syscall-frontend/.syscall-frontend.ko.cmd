@@ -1,0 +1,1 @@
+cmd_/home/sam/VirtuOS-master/source/syscall-frontend/syscall-frontend.ko := ld -r -m elf_x86_64 -T /usr/src/linux-headers-3.2.30/scripts/module-common.lds --build-id  -o /home/sam/VirtuOS-master/source/syscall-frontend/syscall-frontend.ko /home/sam/VirtuOS-master/source/syscall-frontend/syscall-frontend.o /home/sam/VirtuOS-master/source/syscall-frontend/syscall-frontend.mod.o
