@@ -8,5 +8,6 @@ sudo abuild-keygen -ai
 REPO_ADDED=`grep '^/repo/$' /etc/apk/repositories`
 if [ -z $REPO_ADDED ];
 then
-   sudo echo "/repo/" >> /etc/apk/repositories
+   sudo sh -c "echo '' >> /etc/apk/repositories"
+   sudo sh -c "echo '/repo/' >> /etc/apk/repositories"
 fi
