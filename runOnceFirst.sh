@@ -16,7 +16,6 @@ fi
 if [ ! -f /usr/bin/gcc_original ];
 then
    sudo mv /usr/bin/gcc /usr/bin/gcc_original;
-   GCC_WRAPPER="#!/bin/sh\nexec /usr/bin/gcc_original '$@' '-mno-tls-direct-seg-refs'"
-   sudo sh -c "printf $GCC_WRAPPER  > /usr/bin/gcc"
+   printf "#!/bin/sh\nexec /usr/bin/gcc_original '$@' '-mno-tls-direct-seg-refs'" | sudo tee /usr/bin/gcc > /dev/null
    sudo chmod +x /usr/bin/gcc;
 fi
