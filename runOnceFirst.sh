@@ -11,3 +11,11 @@ then
    sudo sh -c "echo '' >> /etc/apk/repositories"
    sudo sh -c "echo '/repo/' >> /etc/apk/repositories"
 fi
+
+#test if we already wrapped gcc
+if [ ! -f /usr/bin/gcc_original ];
+then
+   sudo mv /usr/bin/gcc /usr/bin/gcc_original;
+   sudo printf "#!/bin/sh\nexec /usr/bin/gcc_original '$@' '-mno-tls-direct-seg-refs'" > /usr/bin/gcc;
+   sudo chmod +x /usr/bin/gcc;
+fi
