@@ -24,6 +24,11 @@ echo $VIRTUOS_HOME
 cd $VIRTUOS_HOME
 
 #####################################################################
+# Installing yajl (Xen build depends on this)
+echo "Installing yajl (xen dependency)"
+cd packages/yajl; abuild -r; cd $VIRTUOS_HOME
+sh updateFromRepo.sh yajl yajl-dev yajl-tools
+#####################################################################
 # Installing the Virtuos Headers
 echo "[VirtuOS] - Installing VirtuOS Patched Linux Headers 3.2.30"
 cd packages/virtuos-linux-headers ; abuild -r; cd $VIRTUOS_HOME
