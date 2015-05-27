@@ -4,7 +4,7 @@ YAJL_HOME=$PWD/yajl
 echo $VIRTUOS_HOME
 cd $VIRTUOS_HOME
 # Create/update repo with APK's
-# Please make sure /repo/x86_64 is added in
+# Please make sure /repo/ is added in
 # /etc/apk/repositories
 sudo mkdir -p /repo
 sudo mkdir -p /repo/x86_64
