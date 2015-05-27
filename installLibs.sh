@@ -7,7 +7,7 @@ cd $VIRTUOS_HOME
 # Installing the uclib
 echo "[VirtuOS] - Compiling and Installing Patched uclib"
 cd source/virtuos-uclibc
-make menuconfig; make; sudo make CC="gcc -fno-pic -fno-pie" PREFIX=/usr/sclib install
+make menuconfig; make; sudo make PREFIX=/usr/sclib install
 cd $VIRTUOS_HOME
 #####################################################################
 # Installing libaio
