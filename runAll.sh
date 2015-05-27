@@ -6,3 +6,4 @@ sh updateFromRepo.sh linux-vanilla=3.2.30-r0 linux-vanilla-dev=3.2.30-r0 linux-h
 sh makeFS.sh
 sh installLibs.sh
 sh installFrontBackend.sh
+sh setupXenModules.sh
