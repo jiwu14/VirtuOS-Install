@@ -5,4 +5,8 @@ sudo apk add alpine-sdk make
 sudo abuild-keygen -ai
 
 #local repo location
-sudo echo "/repo/" >> /etc/apk/repositories
+REPO_ADDED=`grep '^/repo/$' /etc/apk/repositories`
+if [ -z $REPO_ADDED ];
+then
+   sudo echo "/repo/" >> /etc/apk/repositories
+fi
