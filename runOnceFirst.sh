@@ -2,6 +2,7 @@
 
 #building requirements
 sudo apk add alpine-sdk make
+sudo cp ./abuild.conf /etc/abuild.conf
 abuild-keygen -ai
 
 #local repo location
