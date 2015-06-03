@@ -17,6 +17,6 @@ fi
 if [ ! -f /usr/bin/gcc_original ];
 then
    sudo mv /usr/bin/gcc /usr/bin/gcc_original;
-   printf "#!/bin/sh\nexec /usr/bin/gcc_original \$@ -mno-tls-direct-seg-refs" | sudo tee /usr/bin/gcc > /dev/null
+   sudo cp ./gcc /usr/bin/gcc;
    sudo chmod +x /usr/bin/gcc;
 fi

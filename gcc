@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/bin/gcc_original "$@" "-mno-tls-direct-seg-refs"
