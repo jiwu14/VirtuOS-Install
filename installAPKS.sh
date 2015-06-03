@@ -18,6 +18,8 @@ sudo chmod a+w /var/cache/distfiles
 #curl -L --insecure https://github.com/bwright/VirtuOS/archive/master.zip > master.zip
 #unzip master.zip
 
+ORIG_HOME=$PWD
+
 # Set Virtuous home directory
 VIRTUOS_HOME=$PWD/VirtuOS-master
 echo $VIRTUOS_HOME
@@ -26,8 +28,9 @@ cd $VIRTUOS_HOME
 #####################################################################
 # Installing yajl (Xen build depends on this)
 echo "Installing yajl (xen dependency)"
-cd packages/yajl; abuild -r; cd $VIRTUOS_HOME
-sh updateFromRepo.sh yajl yajl-dev yajl-tools
+cd packages/yajl; abuild -r
+cd $ORIG_HOME; sh updateFromRepo.sh yajl yajl-dev yajl-tools
+cd $VIRTUOS_HOME
 #####################################################################
 # Installing the Virtuos Headers
 echo "[VirtuOS] - Installing VirtuOS Patched Linux Headers 3.2.30"
