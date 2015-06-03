@@ -13,7 +13,7 @@ cd $VIRTUOS_HOME
 # Installing libaio
 echo "[VirtuOS] - Compiling and Installing Patched libaio"
 cd source/virtuos-libaio
-make clean; make; sudo make PREFIX=/usr/sclib/usr install
+make clean; make; sudo make PREFIX=/usr/sclib install
 cd $VIRTUOS_HOME
 #####################################################################
 # Installing Syscall utilities
