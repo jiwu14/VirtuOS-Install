@@ -2,7 +2,7 @@
 
 #building requirements
 sudo apk add alpine-sdk make
-sudo abuild-keygen -ai
+abuild-keygen -ai
 
 #local repo location
 REPO_ADDED=`grep '^/repo/$' /etc/apk/repositories`
