@@ -1,7 +1,7 @@
 IMG_PATH=/home/$USER
 
 echo "Creating disk image for domains..."
-sudo dd if=/dev/zero of=$IMG_PATH/StorageDomain.img bs=1024k seek=5120 count=0
+dd if=/dev/zero of=$IMG_PATH/StorageDomain.img bs=1024k seek=5120 count=0
 mkfs.ext4 $IMG_PATH/StorageDomain.img
 mkdir /tmp/loop
 sudo mount -o loop $IMG_PATH/StorageDomain.img /tmp/loop
