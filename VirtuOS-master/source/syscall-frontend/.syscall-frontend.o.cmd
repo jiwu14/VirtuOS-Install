@@ -1,1 +1,0 @@
-cmd_/home/sam/VirtuOS-master/source/syscall-frontend/syscall-frontend.o := ld -m elf_x86_64   -r -o /home/sam/VirtuOS-master/source/syscall-frontend/syscall-frontend.o /home/sam/VirtuOS-master/source/syscall-frontend/frontend.o /home/sam/VirtuOS-master/source/syscall-frontend/service.o 
