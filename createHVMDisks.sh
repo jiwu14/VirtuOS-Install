@@ -1,5 +1,6 @@
 IMG_PATH=/home/$USER
 
+echo "Creating disk image for domains..."
 sudo dd if=/dev/zero of=$IMG_PATH/StorageDomain.img bs=1024k seek=5120 count=0
 mkfs.ext4 $IMG_PATH/StorageDomain.img
 mkdir /tmp/loop
@@ -21,3 +22,6 @@ sudo chmod 777 /tmp/loop/tmp
 cp hvmFstab /tmp/loop/etc/fstab
 sudo unmount /tmp/loop
 cp $IMG_PATH/StorageDomain.img $IMG_PATH/NetworkDomain.img
+echo "Domain disk images stored at $IMG_PATH"
+echo "Please change the HVM configuration files with the appropriate path to the images before continuing..."
+read -p "Press any key to continue..."
