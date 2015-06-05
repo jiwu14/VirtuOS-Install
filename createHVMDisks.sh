@@ -1,7 +1,9 @@
-dd if=/dev/zero of=/usr/StorageDomain.img bs=1024k seek=5120 count=0
-mkfs.ext4 /usr/StorageDomain.img
+IMG_PATH=/home/$USER
+
+sudo dd if=/dev/zero of=$IMG_PATH/StorageDomain.img bs=1024k seek=5120 count=0
+mkfs.ext4 $IMG_PATH/StorageDomain.img
 mkdir /tmp/loop
-sudo mount -o loop /usr/StorageDomain.img /tmp/loop
+sudo mount -o loop $IMG_PATH/StorageDomain.img /tmp/loop
 sudo cp -a /bin /tmp/loop
 sudo cp -a /dev /tmp/loop
 sudo cp -a /etc /tmp/loop
@@ -18,4 +20,4 @@ mkdir /tmp/loop/tmp
 sudo chmod 777 /tmp/loop/tmp
 cp hvmFstab /tmp/loop/etc/fstab
 sudo unmount /tmp/loop
-cp /usr/StorageDomain.img /usr/NetworkDomain.img
+cp $IMG_PATH/StorageDomain.img $IMG_PATH/NetworkDomain.img
