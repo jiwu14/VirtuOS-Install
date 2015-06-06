@@ -1,2 +1,2 @@
-xm create -c StorageHVM.cfg
-xm create -c NetworkHVM.cfg
+sudo xm create -c StorageHVM.cfg
+sudo xm create -c NetworkHVM.cfg
