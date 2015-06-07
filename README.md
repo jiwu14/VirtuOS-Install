@@ -3,4 +3,4 @@ Sources required to build [VirtuOS](http://people.cs.vt.edu/~rnikola/?page_id=26
 
 The scripts assume that the user has already installed the <b>alpine-desktop</b> package, setup a regular user account with <b>sudo</b> privileges, and executes the scripts in their location.
 
-All of the scripts except the creation of disk images are wrapped by a <b>runAll.sh</b> script for ease of execution. This will bring the user up to the point of calling the disk image script and creating Xen guests after rebooting the machine.
+All of the scripts except the creation of disk images are wrapped by a <b>runAll.sh</b> script for ease of execution. This will bring the user up to the point of calling the disk image script and creating Xen guests after rebooting the machine. You may be prompted for additional Linux kernel options which you can skip by holding enter (to use default values).
